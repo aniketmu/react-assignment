@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Task = (props) => {
+const Task = ({task, completeTask}) => {
   return (
-    <div className='task' onClick = {() => props.completeTask(props.task)}><h2 style={{color: props.task.completed ? "green" : "red"}} >{props.task.name}</h2></div>
+    <div className='task' onClick = {() => completeTask(task)}><h2 style={{color: task.completed ? "green" : "red"}} >{task.name}</h2></div>
   )
 }
 

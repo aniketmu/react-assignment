@@ -1,0 +1,56 @@
+import React, { useEffect, useState } from 'react';
+import "./App.css"
+import Input from './pages/Input';
+import Task from './pages/Task';
+
+function App() {
+  const [tasks, setTasks] = useState([])
+
+  const addTask = (task) => {
+    setTasks([...tasks, task])
+  }
+
+  const completeTask = (taskId) => {
+    const updatedTasks = tasks.map(task => {
+      if (task.id === taskId) {
+        return { ...task, completed: !task.completed }
+      }
+      return task;
+    })
+
+    setTasks(updatedTasks)
+  }
+
+  useEffect(() => {
+    console.log(tasks)
+  }, [tasks])
+
+  // Separate completed and pending tasks
+  const completedTasks = tasks.filter(task => task.completed);
+  const pendingTasks = tasks.filter(task => !task.completed);
+
+  // Sort completed tasks by index in reverse order
+  completedTasks.sort((a, b) => b.index - a.index);
+  pendingTasks.reverse()
+  return (
+    <div className='container'>
+      <Input addTask={addTask}/>
+      {pendingTasks.map((task, index) => (
+        <Task
+          task={task}
+          completeTask={completeTask}
+          key={index}
+        />
+      ))}
+      {completedTasks.map((task, index) => (
+        <Task
+          task={task}
+          completeTask={completeTask}
+          key={index}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default App;

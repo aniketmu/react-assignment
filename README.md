@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# To-Do App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple To-Do web application built using React JS. It allows users to add, complete, and reset tasks, and it stores task data locally using the browser's local storage.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Add Tasks**: Users can enter tasks in the input bar and press the "Enter" key to add them to the list.
 
-### `npm start`
+- **Complete Tasks**: Clicking on a task card marks it as complete and moves it to the bottom of the list.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Reset**: There is a "Refresh" button that clears all tasks and returns the app to its initial state.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Local Storage**: Task data is stored locally in the browser, so it remains available even when the user closes or refreshes the page.
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository to your local machine.
 
-### `npm run build`
+2. Navigate to the project directory.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install dependencies using `npm install`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Start the application using `npm start`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Open the app in your web browser by visiting `http://localhost:3000`.
 
-### `npm run eject`
+6. You can now use the app to manage your tasks.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Technologies Used
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React JS
+- UUID (for generating unique task IDs)
+- CSS for styling
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Folder Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `App.js`: Main component that manages the application state.
+- `Input.js`: Component for adding tasks and resetting the app.
+- `Task.js`: Component for displaying individual tasks.
+- `App.css`: Styles for the application.
 
-## Learn More
+## Assumptions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+While developing this To-Do app, I made the following assumptions:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Offline Functionality**: Since the app is designed as a client-side application and doesn't rely on network requests, I assumed that using `localStorage` for local data storage would be sufficient for providing an offline experience.
 
-### Code Splitting
+2. **No Server Interaction**: The app does not interact with a server or require a backend. All data is stored locally within the browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Supported Browsers**: I developed and tested the app to work in the latest versions of Google Chrome and Firefox. 
 
-### Analyzing the Bundle Size
+4. **Use of UUIDs**: I used UUIDs for generating unique task IDs to ensure task uniqueness in the local storage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. **Task Reversion**: The assignment did not specify whether completed tasks should revert to a pending state when clicked again. As a result, I implemented the functionality where tasks are marked as completed on click, but I did not include a feature to revert completed tasks to pending status.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+These assumptions guided my development decisions, and I aimed to meet the specified requirements based on these assumptions.
